@@ -72,12 +72,11 @@
         background-color: white;
         border: 1px solid black;
         border-radius: 5px;
-        bottom: 250px;
-        height: 150px;
-        width: 58%;
+        bottom: 500px;
+        height: 250px;
+        width: 25%;
         position: absolute;
-        left: 250px;
-        right: 30px;
+        right: 50px;
       }
      #legend {
         font-family: Arial, sans-serif;
@@ -132,6 +131,36 @@
        1 <br>
  </div>
     <div id="info-box">No basin selected</div>
+    <div id="budyko-box">
+    <script>
+        g2 = new Dygraph(
+
+	    // containing div
+	    document.getElementById("budyko-box"), 
+           //event.feature.getProperty("GRDC_NO") +"/model_output/Cal/Qmod.csv" ,
+           "budyko_selection.csv" ,
+           {
+		title: "Budyko" ,
+                height: "10px",
+                rightGap: "50",
+		ylabel: "Ea/P [mm/year]",
+		axisLabelWidth:(10,70),
+		//color:["blue","red"],
+                  strokeWidth: 0.0,
+                  drawPoints: true,
+                  pointSize: 4,
+                  highlightCircleSize: 6,
+		valueRange: [0.0, 1.5],
+		}
+
+
+
+
+	  )
+
+    </script>
+
+</div>
     <div id="plot-box">No basin selected</div>
 	<div id="tickbox",action="" >
  		 <input id="checkboxNSE" name="obj"type="radio" onclick="setMap(this,'NSE');" checked> NSE<br>
@@ -249,7 +278,10 @@ function normalImg_landscape(x) {
 	// Add some style.
         setMap(this, 'NSE');
 
-    
+ 
+
+
+   
 	map.data_eubasins.addListener('click', function(event) {
         
         // show info
@@ -326,26 +358,13 @@ document.getElementById("landscapes").src=
 	  )
 //});
 
-         g2 = new Dygraph(
 
-	    // containing div
-	    document.getElementById("budyko-box"), 
-           //event.feature.getProperty("GRDC_NO") +"/model_output/Cal/Qmod.csv" ,
-           "budyko_selection.csv" ,
-           {
-		title: event.feature.getProperty("Budyko") ,
-                height: "10px",
-                rightGap: "50",
-		ylabel: "Q [mm/d]",
-		axisLabelWidth:(10,70),
-		//color:["blue","red"],
-		valueRange: [0.0, 10],
-		}
+g2.updateOptions({file: event.feature.getProperty("GRDC_NO") +"/budyko.csv",
+color: "red"});
+
+         
 
 
-
-
-	  )
 });
 
 
