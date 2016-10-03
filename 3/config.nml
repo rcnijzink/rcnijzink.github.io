@@ -1,0 +1,50 @@
+&general  
+snow_flag   =.FALSE.
+Elev_station            = 43
+
+!define input filetype, either 'netcdf' or 'ascii'
+filetype                    = 'netcdf'
+
+! define low and high flow periods
+mm_low  = 11
+mm_high = 7
+
+
+!calibration and validation periods are only used in case Optim_flag is true, calibration period must follow warmup
+warmup_start =  20-07-1977
+warmup_end =  20-07-1978
+cal_start =  21-07-1978
+cal_end =  17-05-1983 !17-05-1994
+val_start =  17-05-1983 !17-05-1994
+val_end =  17-05-1983 !17-05-1994
+
+input_dem = "DEM134"
+
+
+input_dir  = "model_input/"
+output_dir = "model_output/"
+
+
+                                            
+/
+&optimization  
+Optim_flag             =  .TRUE.
+!Methods:
+!1=monte carlo random sampling (creating a pareto front)
+!2=constrained based ( no observations required )
+!3=constrained based stepwise( no observations required )
+!4=random run 
+!5=random run for constraints
+!6=revised random run for objectives
+Method                 =  7                                              
+Iterations             =  100
+!implemented objective functions:
+!1=NSE
+!2=LNSE
+!3=VE
+!4=Nash of flow duration curve
+!In case of constraints:
+!Number of initial samples:
+N_samples                      = 2
+/
+

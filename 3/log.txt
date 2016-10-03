@@ -1,0 +1,24 @@
+ 
+    Reading configuration and data ...
+ 
+    Reading landscape table ...
+ 
+    Reading parameters ...
+    
+     Filetypes: netcdf
+    
+    Read precipitation netcdf:
+ model_input/prec/prec.nc
+    
+    Read potential evaporation netcdf:
+ model_input/ep/ep.nc
+    
+    No restart file found, switching to default:
+    Initial states: 0 [mm]
+    No restart routing file found, switching to default:
+    Initial routing: 0 [mm/d]
+    
+ WARNING: Qobs.txt does not fully cover calibration period
+  Missing values:        7242
+    
+    FLEXtopo succesfully executed!
