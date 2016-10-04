@@ -138,7 +138,7 @@
 	    // containing div
 	    document.getElementById("budyko-box"), 
            //event.feature.getProperty("GRDC_NO") +"/model_output/Cal/Qmod.csv" ,
-           "budyko_selection.csv" ,
+           "budyko_selection_v2.csv" ,
            {
 		title: "Budyko" ,
                 height: "10px",
@@ -151,6 +151,21 @@
                   pointSize: 4,
                   highlightCircleSize: 6,
 		valueRange: [0.0, 1.5],
+                 'EaP': {
+                  strokeWidth: 0.0,
+                  drawPoints: true,
+                  color: 'green'
+                },
+                'Budyko': {
+                  strokeWidth: 1.0,
+                  drawPoints: false,
+                  color: 'red'
+                },
+                'Boundary': {
+                  strokeWidth: 1.0,
+                  drawPoints: false,
+                  color: 'black'
+                },
 		}
 
 
@@ -264,7 +279,7 @@ function normalImg_landscape(x) {
 	var script_eubasins = document.createElement('script');
 
 //        script_eubasins.src = 'google_maps/eu_basins_v2.geojsonp';
-        script_eubasins.src = 'google_maps/Constraining_basins_v6.geojsonp';
+        script_eubasins.src = 'google_maps/Constraining_basins_v7.geojsonp';
 //       script_eubasins.src = 'https://dl.dropboxusercontent.com/s/gb303sk92ndj97a/Constraining_basins_v6.geojsonp?dl=0'
         document.getElementsByTagName('head')[0].appendChild(script_eubasins);
 
@@ -359,10 +374,54 @@ document.getElementById("landscapes").src=
 //});
 
 
-document.getElementById("budyko-box").updateOptions({file: event.feature.getProperty("GRDC_NO") +"/budyko.csv",
+g2.updateOptions({file: event.feature.getProperty("GRDC_NO") +"/budyko.csv",
 color: "red"});
 
-         
+g2.updateOptions(
+
+	    // containing div
+	    document.getElementById("budyko-box"), 
+           //event.feature.getProperty("GRDC_NO") +"/model_output/Cal/Qmod.csv" ,
+           "budyko.csv" ,
+           {
+		title: "Budyko" ,
+                height: "10px",
+                rightGap: "50",
+		ylabel: "Ea/P [mm/year]",
+		axisLabelWidth:(10,70),
+		//color:["blue","red"],
+                  strokeWidth: 0.0,
+                  drawPoints: true,
+                  pointSize: 4,
+                  highlightCircleSize: 6,
+		valueRange: [0.0, 1.5],
+                 'Budyko': {
+                  strokeWidth: 1.0,
+                  drawPoints: false,
+                  color: 'red'
+                },
+               'EaP': {
+                  strokeWidth: 0.0,
+                  drawPoints: true,
+                  color: 'green'
+                },
+                'Boundary': {
+                  strokeWidth: 1.0,
+                  drawPoints: false,
+                  color: 'black'
+                },
+               'Selection': {
+                  strokeWidth: 1.0,
+                  drawPoints: true,
+                  color: 'red',
+                  pointSize: 12,
+                },
+		}
+
+
+
+
+	  )         
 
 
 });
