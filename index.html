@@ -383,20 +383,21 @@ document.getElementById("landscapes").src=
 //});
 
 
-g2.updateOptions({file: event.feature.getProperty("GRDC_NO") +"/budyko.csv",
-color: "red"});
+//g2.updateOptions({file: event.feature.getProperty("GRDC_NO") +"/budyko.csv",
+//color: "red"});
 
 g2.updateOptions(
 
 	    // containing div
-	    document.getElementById("budyko-box"), 
-           //event.feature.getProperty("GRDC_NO") +"/model_output/Cal/Qmod.csv" ,
-           "budyko.csv" ,
+	  //  document.getElementById("budyko-box"), 
+
            {
+           file: event.feature.getProperty("GRDC_NO") +"/budyko.csv" ,
 		title: "Budyko" ,
                 height: "10px",
                 rightGap: "50",
-		ylabel: "Ea/P [mm/year]",
+                 ylabel: "\u2211 Ea/P [-]",
+		xlabel: "\u2211 Ep/P [-]",
 		axisLabelWidth:(10,70),
 		//color:["blue","red"],
                   strokeWidth: 0.0,
@@ -423,7 +424,7 @@ g2.updateOptions(
                   strokeWidth: 1.0,
                   drawPoints: true,
                   color: 'red',
-                  pointSize: 12,
+                  pointSize: 6,
                 },
 		}
 
