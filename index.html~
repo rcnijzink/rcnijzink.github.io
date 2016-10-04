@@ -143,7 +143,8 @@
 		title: "Budyko" ,
                 height: "10px",
                 rightGap: "50",
-		ylabel: "Ea/P [mm/year]",
+		ylabel: "\u2211 Ea/P [-]",
+		xlabel: "&sum Ep/P [-]",
 		axisLabelWidth:(10,70),
 		//color:["blue","red"],
                   strokeWidth: 0.0,
@@ -316,20 +317,28 @@ function normalImg_landscape(x) {
     '<td><FONT SIZE=1>GRDC_NO</td>'+
     '<td><FONT SIZE=1>'+ event.feature.getProperty("GRDC_NO") +'</font></td>'+
  '</tr>'+
+'<tr style="height:2px">' +
+    '<td><FONT SIZE=1>River</td>'+
+    '<td><FONT SIZE=1>'+ event.feature.getProperty("RIVER") +'</font></td>'+
+ '</tr>'+
+'<tr style="height:2px">' +
+    '<td><FONT SIZE=1>Station</td>'+
+    '<td><FONT SIZE=1>'+ event.feature.getProperty("STATION") +'</font></td>'+
+ '</tr>'+
  '<tr style="height:2px">' +
-    '<td><FONT SIZE=1>NSE</td>'+
+ //   '<td><FONT SIZE=1>NSE</td>'+
   //  '<td><FONT SIZE=1>'+ event.feature.getProperty("NSE") +'</font></td>'+
  '</tr>'+
  '<tr style="height:2px">' +
-    '<td><FONT SIZE=1>LNSE</td>'+
+  //  '<td><FONT SIZE=1>LNSE</td>'+
   //  '<td><FONT SIZE=1>'+ event.feature.getProperty("LNSE") +'</font></td>'+
  '</tr>'+
  '<tr style="height:2px">' +
-    '<td><FONT SIZE=1>KGE</font></td>'+
+ //   '<td><FONT SIZE=1>KGE</font></td>'+
   //  '<td><FONT SIZE=1>'+ event.feature.getProperty("KGE") +'</font></td>'+
  '</tr>'+
  '<tr style="height:2px">' +
-    '<td><FONT SIZE=1>LKGE</font></td>'+
+  //  '<td><FONT SIZE=1>LKGE</font></td>'+
   //  '<td><FONT SIZE=1>'+ event.feature.getProperty("LKGE") +'</font></td>'+
  '</tr>'+
 '</table>'
